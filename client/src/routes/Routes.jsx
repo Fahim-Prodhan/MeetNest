@@ -4,6 +4,7 @@ import {
 import Root from "../layouts/root/Root";
 import Home from "../pages/home/Home";
 import Signup from "../pages/signup/Signup";
+import Login from "../pages/login/Login";
 
 
 let router = createBrowserRouter([
@@ -18,6 +19,10 @@ let router = createBrowserRouter([
             {
                 path:'/signup',
                 Component: Signup
+            }, 
+            {
+                path:'/login',
+                Component: Login
             }
         ]
     },

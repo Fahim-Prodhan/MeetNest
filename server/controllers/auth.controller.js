@@ -45,4 +45,34 @@ export const signup = async (req, res) => {
   }
 };
 
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email }); 
+    
+    // Check if user exists
+    if (!user) {
+      return res.status(400).json({ error: "Invalid username or password" });
+    }
+
+    // Check if password is correct
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      return res.status(400).json({ error: "Invalid username or password" });
+    }
+
+    // Generate JWT token and set cookie
+    generateTokenAndSetCookie(user._id, res);
+    // Respond with user data
+    res.status(200).json({
+      _id: user._id,
+      email: user.email,
+      photoUrl:user.photoUrl
+    });
+  } catch (error) {
+    console.log("Error in login controller", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 
