@@ -2,9 +2,9 @@ import Event from "../models/event.model.js";
 
 export const addEvent = async (req, res) => {
   try {
-    const { title, postedBy, datetime, location, description } = req.body;
+    const { title, postedBy, datetime, location, description,userId } = req.body;
 
-    if (!title || !postedBy || !datetime || !location || !description) {
+    if (!title || !postedBy || !datetime || !location || !description || !userId) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
@@ -13,7 +13,8 @@ export const addEvent = async (req, res) => {
       postedBy,
       datetime,
       location,
-      description
+      description,
+      userId
     });
 
     const savedEvent = await newEvent.save();

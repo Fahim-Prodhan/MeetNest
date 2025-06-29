@@ -5,6 +5,7 @@ import Root from "../layouts/root/Root";
 import Home from "../pages/home/Home";
 import Signup from "../pages/signup/Signup";
 import Login from "../pages/login/Login";
+import AddEvent from "../pages/event/addEvent/AddEvent";
 
 
 let router = createBrowserRouter([
@@ -23,6 +24,10 @@ let router = createBrowserRouter([
             {
                 path:'/login',
                 Component: Login
+            },
+            {
+                path:'/add-events',
+                Component: AddEvent
             }
         ]
     },

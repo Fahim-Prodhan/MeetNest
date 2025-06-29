@@ -11,14 +11,13 @@ import baseUrl from "../../service/baseUrl";
 const Navbar = () => {
   const [hamburger, setHamburger] = useState(false);
   const { authUser, setAuthUser } = useAuthContext();
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
 
 
 
   const handleLogout = async () => {
-    setLoading(true);
+   
     try {
       const res = await fetch(`${baseUrl}/api/auth/logout`, {
         method: "POST",
@@ -32,11 +31,9 @@ const Navbar = () => {
       }
       localStorage.removeItem("UID");
       setAuthUser(null);
+      navigate('/login')
     } catch (error) {
       toast.error(error.message);
-    } finally {
-      setLoading(false);
-      navigate('/')
     }
   };
 

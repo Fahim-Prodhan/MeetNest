@@ -24,7 +24,7 @@ const Login = () => {
         const password = form.password.value;
       
         try {
-          const res = await axios.post(`${baseUrl}/api/auth/login`, { email, password }); 
+          const res = await axios.post(`${baseUrl}/api/auth/login`, { email, password },{withCredentials:true}); 
       
           if (res.data?._id) {
             toast.success("Login successful");
