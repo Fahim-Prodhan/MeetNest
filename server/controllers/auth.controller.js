@@ -75,4 +75,26 @@ export const login = async (req, res) => {
   }
 };
 
+export const getUserById = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.status(200).json({
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      avatar:user.avatar
+    });
+  } catch (error) {
+    console.log("Error in getUserById controller", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 
