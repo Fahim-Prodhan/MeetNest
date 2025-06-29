@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDB from "./server/DB/databaseConfigs.js";
+import authRoutes from "./server/routes/auth.routes.js";
+
 
 const app = express();
 
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello to online API");
