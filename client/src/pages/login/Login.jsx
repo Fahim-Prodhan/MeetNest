@@ -92,8 +92,8 @@ const Login = () => {
                             </div>
                         </div>
                         <p className="text-sm">
-                            Already have an account?{" "}
-                            <Link to="/login" className="text-blue-500 underline">Login</Link>
+                            Don't Have an Account?{" "}
+                            <Link to="/signup" className="text-blue-500 underline">Register</Link>
                         </p>
 
                         <div className="mt-6">

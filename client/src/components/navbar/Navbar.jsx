@@ -1,21 +1,45 @@
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import logo from '../../assets/images/logo.png'
 import toast from "react-hot-toast";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from "react-tooltip";
 import { useAuthContext } from "../../context/authContext";
+import baseUrl from "../../service/baseUrl";
 
 const Navbar = () => {
   const [hamburger, setHamburger] = useState(false);
-  const { authUser } = useAuthContext();
-  console.log(authUser);
+  const { authUser, setAuthUser } = useAuthContext();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
 
-  const handleLogout = () => {
 
+
+  const handleLogout = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${baseUrl}/api/auth/logout`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials:'include'
+      });
+      const data = await res.json();
+ 
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      localStorage.removeItem("UID");
+      setAuthUser(null);
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+      navigate('/')
+    }
   };
+
 
   const handleHamburger = () => {
     setHamburger(!hamburger);
@@ -115,9 +139,9 @@ const Navbar = () => {
                 <Link to="/login">
                   <button
                     type="button"
-                    className="text-[#222] bg-[#FF4F0F] hover:bg-[#ffd310] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
+                    className="text-[#fff] cursor-pointer bg-[#FF4F0F] hover:bg-[#ff670f] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
                   >
-                    Login
+                    Sign In
                   </button>
                 </Link>
               </div>
@@ -199,9 +223,9 @@ const Navbar = () => {
               <Link onClick={handleHamburger} to="/login">
                 <button
                   type="button"
-                  className="text-[#111] bg-[#FF4F0F] hover:bg-[#FF4F0F] px-2 py-1 rounded-lg font-semibold"
+                  className="text-[#fff] bg-[#FF4F0F] hover:bg-[#FF4F0F] px-2 py-1 rounded-lg font-semibold"
                 >
-                  Login
+                  Sign In
                 </button>
               </Link>
 
