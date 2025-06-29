@@ -89,7 +89,7 @@ export const getUserById = async (req, res) => {
       username: user.username,
       email: user.email,
       role: user.role,
-      avatar:user.avatar
+      photoUrl:user.photoUrl
     });
   } catch (error) {
     console.log("Error in getUserById controller", error.message);
