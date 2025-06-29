@@ -14,18 +14,16 @@ const Navbar = () => {
   const navigate = useNavigate();
 
 
-
-
   const handleLogout = async () => {
-   
+
     try {
       const res = await fetch(`${baseUrl}/api/auth/logout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials:'include'
+        credentials: 'include'
       });
       const data = await res.json();
- 
+
       if (data.error) {
         throw new Error(data.error);
       }
@@ -115,7 +113,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-[#eee] shadow-2xl">
+      <nav className="bg-[#eee] shadow-2xl md:py-0 py-2">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
           {/* Left side website name and logo */}
           <Link
@@ -149,24 +147,37 @@ const Navbar = () => {
                 className={`flex items-center space-x-3 gap-4`}
               >
                 {
-                  authUser && <div className="tooltip tooltip-left avatar cursor-pointer">
-                    <div className="w-12 rounded-full">
-                      <img src={authUser?.photoUrl} />
+                  authUser &&
+                    <div className="dropdown dropdown-end hover:bg-[#eee]">
+                      <div tabIndex={0} role="button" className="btn p-0 bg-[#eee]">
+                        <button className="tooltip tooltip-left avatar cursor-pointer" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" }}>
+                          <div className="w-12 rounded-full">
+                            <img src={authUser?.photoUrl} />
+                          </div>
+                        </button>
+                      </div>
+                      <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <li><p>{authUser?.name}</p></li>
+                        <li><Link
+                          className="md:flex"
+                          onClick={handleLogout}
+                          to="/login"
+                        >
+                          <button
+                            type="button"
+                            className="text-white cursor-pointer bg-[#FF6D60] hover:bg-[#ff988f] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
+                          >
+                            Logout
+                          </button>
+                        </Link></li>
+                      </ul>
                     </div>
-                  </div>
+                  
+
                 }
-                <Link
-                  className="hidden md:flex"
-                  onClick={handleLogout}
-                  to="/login"
-                >
-                  <button
-                    type="button"
-                    className="text-white bg-[#FF6D60] hover:bg-[#ff988f] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
-                  >
-                    Logout
-                  </button>
-                </Link>
+
+
+
               </div>
             }
 

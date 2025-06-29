@@ -13,7 +13,6 @@ export const signup = async (req, res) => {
       photoUrl,
     } = req.body;
 
-
     // Check if username or email already exists
     const existingUser = await User.findOne({ $or: [{ email }] });
     if (existingUser) {
@@ -86,7 +85,7 @@ export const getUserById = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      username: user.username,
+      name: user.name,
       email: user.email,
       role: user.role,
       photoUrl:user.photoUrl

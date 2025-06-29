@@ -9,6 +9,4 @@ router.get('/user/:id', getUserById);
 router.post("/logout", logout);
 
 
-
-
 export default router;
