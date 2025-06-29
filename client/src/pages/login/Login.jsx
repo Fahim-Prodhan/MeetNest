@@ -17,24 +17,27 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setLoading(true);
+      
         const form = e.target;
-        const email = form.email.value;
+        const email = form.email.value.trim();
         const password = form.password.value;
-
+      
         try {
-            setLoading(true)
-            const userData = {
-                email,
-                password
-            };
-            const res = axios.post(`${baseUrl}/api/auth/login`, userData)
-            setLoading(false)
+          const res = await axios.post(`${baseUrl}/api/auth/login`, { email, password }); 
+      
+          if (res.data?._id) {
+            toast.success("Login successful");
+            localStorage.setItem("UID", JSON.stringify(res.data?._id));
+            navigate('/');
+          } 
         } catch (error) {
-            toast.error('Something went wrong');
-            console.error(error);
-            setLoading(setLoading)
+          toast.error(error.response.data.error);
+        } finally {
+          setLoading(false);
         }
-    };
+      };
+      
 
     return (
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
