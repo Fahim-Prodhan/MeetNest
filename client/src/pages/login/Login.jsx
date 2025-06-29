@@ -40,16 +40,16 @@ const Login = () => {
       
 
     return (
-        <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-3 md:px-8 py-3 md:py-12">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
                 <div>
                     <div className="flex justify-center lg:justify-start mb-6">
                         <img className="w-1/2 lg:w-1/3" src={logo} alt="Logo" />
                     </div>
-                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center lg:text-left mb-4">
+                    <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-center lg:text-left mb-4">
                         Login your MeetNest account
                     </h1>
-                    <ul className="space-y-4 text-lg">
+                    <ul className="space-y-4 text-sm md:text-lg">
                         <li className="flex items-start gap-2">
                             <TiTick className="text-2xl text-[#68D2E8]" />
                             Plan smart, gather seamlessly – MeetNest makes every event effortless.
