@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import toast from "react-hot-toast";
@@ -13,7 +13,6 @@ const image_hosting_key = "2b4648ad07a1d5d2b245f3b3d48cf849";
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Signup = () => {
-    const navigate = useNavigate();
     const [eye, setEye] = useState(false);
     const [loading, setLoading] = useState(false)
 

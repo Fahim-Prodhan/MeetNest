@@ -70,7 +70,7 @@ const MyEvents = () => {
                 return (
                     <div
                         key={event._id}
-                        className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full"
+                        className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full px-8 md:px-24 mt-12"
                     >
                         <div>
                             <h2 className="text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>
