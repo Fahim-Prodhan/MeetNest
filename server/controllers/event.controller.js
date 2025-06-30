@@ -102,7 +102,17 @@ export const getUserEvent =async (req,res)=>{
   const {userId} = req.params;
 
   try {
-    const events = await Event.find({userId}).sort({datetime:1})
+    const events = await Event.find({userId}).sort({updatedAt: -1})
+    res.status(200).json(events)
+  } catch (error) {
+    return res.status(400).json("Something is went wrong!")
+  }
+}
+
+export const getHomeEvents = async (req,res)=>{
+
+  try {
+    const events = await Event.find().sort({datetime:1}).limit(6)
     res.status(200).json(events)
   } catch (error) {
     return res.status(400).json("Something is went wrong!")

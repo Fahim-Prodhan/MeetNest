@@ -20,7 +20,7 @@ const EventUpdateModal = ({ event, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${baseUrl}/api/events/${event._id}`, formData);
+      await axios.put(`${baseUrl}/api/events/${event._id}`, formData, {withCredentials:true});
       toast.success('Event updated successfully!');
       onClose();
     } catch (err) {
@@ -30,8 +30,8 @@ const EventUpdateModal = ({ event, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-[#33333364] bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-xl">
-        <h2 className="text-xl font-bold mb-4">Update Event</h2>
+      <div className="bg-white p-3 md:p-6 rounded-xl shadow-lg w-full max-w-xl mt-18 md:mt-18 mx-3">
+        <h2 className="text-xl font-bold text-center">Update Event</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block font-semibold mb-1">Title</label>
@@ -87,7 +87,7 @@ const EventUpdateModal = ({ event, onClose }) => {
             <textarea
               name="description"
               className="textarea textarea-bordered w-full"
-              rows="4"
+              rows="2"
               value={formData.description}
               onChange={handleChange}
               required

@@ -8,6 +8,7 @@ import Login from "../pages/login/Login";
 import AddEvent from "../pages/event/addEvent/AddEvent";
 import EventList from "../pages/event/eventList/EventList";
 import MyEvents from "../pages/event/myEvents/MyEvents";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 
 let router = createBrowserRouter([
@@ -18,28 +19,28 @@ let router = createBrowserRouter([
             {
                 path: '/',
                 Component: Home
-            }, 
+            },
             {
-                path:'/signup',
+                path: '/signup',
                 Component: Signup
-            }, 
+            },
             {
-                path:'/login',
+                path: '/login',
                 Component: Login
             },
             {
-                path:'/add-events',
-                Component: AddEvent
+                path: '/add-events',
+                element: <ProtectedRoutes><AddEvent /></ProtectedRoutes>
             },
             {
-                path:'/events',
-                Component: EventList
-            },
+                path: '/events',
+                element: <ProtectedRoutes><EventList /></ProtectedRoutes>
+            }
+            ,
             {
-                path:'/my-events',
-                Component: MyEvents
-            },
-            
+                path: '/my-events',
+                element: <ProtectedRoutes><MyEvents /></ProtectedRoutes>
+            }
         ]
     },
 ]);

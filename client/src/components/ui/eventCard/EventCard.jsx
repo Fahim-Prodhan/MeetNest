@@ -28,7 +28,7 @@ const EventCard = ({ event, onJoin }) => {
         </p>
       </div>
       <button
-        className="mt-6 w-full py-2 bg-[#ED3500] text-white font-semibold rounded-lg hover:bg-[#c73000] transition-colors duration-300"
+        className="mt-6 cursor-pointer w-full py-2 bg-[#093fb4dc] text-white font-semibold rounded-lg hover:bg-[#093FB4] transition-colors duration-300"
         onClick={() => onJoin(event._id)}
       >
         Join Event

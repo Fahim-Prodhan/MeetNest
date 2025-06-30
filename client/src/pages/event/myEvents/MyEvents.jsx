@@ -16,7 +16,7 @@ const MyEvents = () => {
         try {
             const userId = authUser?._id
             if(userId){
-                const res = await axios.get(`${baseUrl}/api/events/user/${userId}`);
+                const res = await axios.get(`${baseUrl}/api/events/user/${userId}`,{withCredentials:true});
                 console.log(res);
                 setEvents(res.data);
             }
@@ -42,7 +42,7 @@ const MyEvents = () => {
       
         if (result.isConfirmed) {
           try {
-            await axios.delete(`${baseUrl}/api/events/${id}`);
+            await axios.delete(`${baseUrl}/api/events/${id}`,{withCredentials:true});
             toast.success('Event deleted');
             fetchEvents();
           } catch {
@@ -57,7 +57,7 @@ const MyEvents = () => {
     };
 
     return (
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 md:px-24">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 md:px-24 mt-12">
             {events.map(event => {
                 const date = new Date(event.datetime);
                 const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(
@@ -70,7 +70,7 @@ const MyEvents = () => {
                 return (
                     <div
                         key={event._id}
-                        className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full mt-12"
+                        className="border bg-red500 border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full"
                     >
                         <div>
                             <h2 className="text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>

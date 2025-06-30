@@ -22,7 +22,7 @@ const EventList = () => {
         search,
         filter,
         selectedDate: filter === 'date' ? selectedDate : undefined,
-      },
+      },withCredentials:true
     });
     setEvents(res.data);
   };
@@ -31,7 +31,7 @@ const EventList = () => {
     const userId = authUser?._id;
   
     try {
-      await axios.post(`${baseUrl}/api/events/join/${eventId}`, { userId });
+      await axios.post(`${baseUrl}/api/events/join/${eventId}`, { userId },{ withCredentials: true });
       toast.success('Successfully joined the event');
       fetchEvents();
     } catch (error) {

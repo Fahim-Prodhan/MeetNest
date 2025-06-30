@@ -14,11 +14,12 @@ const MostRecentEvent = () => {
         const userId = authUser?._id;
 
         try {
-            await axios.post(`${baseUrl}/api/events/join/${eventId}`, { userId });
+            await axios.post(`${baseUrl}/api/events/join/${eventId}`, { userId },{withCredentials:true});
             toast.success('Successfully joined the event');
             fetchEvents();
-        } catch (error) {
-            toast.error(error.response?.data?.message || 'Failed to join event');
+        } catch {
+            // toast.error(error.response?.data?.message || 'Failed to join event');
+            return window.location.href = '/login'
         }
     };
 
@@ -27,7 +28,7 @@ const MostRecentEvent = () => {
     }, []);
 
     const fetchEvents = async () => {
-        const res = await axios.get(`${baseUrl}/api/events`);
+        const res = await axios.get(`${baseUrl}/api/events/home`);
         setEvents(res.data);
     };
 
