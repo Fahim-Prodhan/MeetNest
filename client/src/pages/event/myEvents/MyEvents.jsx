@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import baseUrl from '../../../service/baseUrl';
 import EventUpdateModal from '../../../components/ui/eventUpdateModal/EventUpdateModal';
@@ -19,7 +20,7 @@ const MyEvents = () => {
                 console.log(res);
                 setEvents(res.data);
             }
-        } catch (err) {
+        } catch {
             toast.error("Failed to fetch events");
         }
     };
@@ -29,14 +30,26 @@ const MyEvents = () => {
     }, [authUser]);
 
     const handleDelete = async (id) => {
-        try {
+        const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        });
+      
+        if (result.isConfirmed) {
+          try {
             await axios.delete(`${baseUrl}/api/events/${id}`);
             toast.success('Event deleted');
             fetchEvents();
-        } catch (err) {
-            toast.error("Failed to delete event");
+          } catch {
+            toast.error('Failed to delete event');
+          }
         }
-    };
+      };
 
     const handleUpdate = (event) => {
         setSelectedEvent(event);

@@ -103,9 +103,50 @@ export const getUserEvent =async (req,res)=>{
 
   try {
     const events = await Event.find({userId}).sort({datetime:1})
-    console.log(events);  
     res.status(200).json(events)
   } catch (error) {
     return res.status(400).json("Something is went wrong!")
   }
 }
+
+export const deleteEvent = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedEvent = await Event.findByIdAndDelete(id);
+    if (!deletedEvent) {
+      return res.status(404).json({ message: "Event not found" });
+    }
+    res.status(200).json({ message: "Event deleted successfully" });
+  } catch (error) {
+    res.status(400).json({ message: "Something went wrong!" });
+  }
+};
+
+
+export const updateEvent = async (req, res) => {
+  const { id } = req.params;
+  const { title, postedBy, datetime, location, description } = req.body;
+
+  try {
+    const updatedEvent = await Event.findByIdAndUpdate(
+      id,
+      {
+        title,
+        postedBy,
+        datetime,
+        location,
+        description,
+      },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedEvent) {
+      return res.status(404).json({ message: "Event not found" });
+    }
+
+    res.status(200).json({ message: "Event updated successfully", updatedEvent });
+  } catch (error) {
+    res.status(400).json({ message: "Something went wrong!" });
+  }
+};

@@ -45,10 +45,10 @@ const Signup = () => {
                     password
                 };
 
-                await axios.post(`${baseUrl}/api/auth/signup`, userData,{withCredentials:true});
-                localStorage.setItem("UID", JSON.stringify(res.data));
+                const signup = await axios.post(`${baseUrl}/api/auth/signup`, userData,{withCredentials:true});
+                localStorage.setItem("UID", JSON.stringify(signup.data));
                 toast.success('Account created successfully!');
-                navigate('/');
+                window.location.href = '/'
                 setLoading(false)
 
             }

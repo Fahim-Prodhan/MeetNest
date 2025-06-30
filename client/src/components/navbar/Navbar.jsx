@@ -235,7 +235,7 @@ const Navbar = () => {
 
             </div>
           }
-          {
+          {/* {
             authUser && <div className={`md:hidden flex gap-4 mt-6`}>
               <Link
                 onClick={() => {
@@ -246,13 +246,13 @@ const Navbar = () => {
               >
                 <button
                   type="button"
-                  className="text-[#111] bg-[#093FB4] hover:bg-[#093FB4] px-2 py-1 rounded-lg font-semibold"
+                  className="text-[#fff]  bg-[#FF6D60] hover:bg-[#ff988f] px-2 py-1 rounded-lg font-semibold"
                 >
                   Logout
                 </button>
               </Link>
             </div>
-          }
+          } */}
 
         </div>
 
