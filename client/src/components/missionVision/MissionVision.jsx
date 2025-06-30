@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 const MissionAndVision = () => {
   return (
     <div>
-      <h1 className="text-center pb-12 text-3xl md:text-4xl font-bold mt-24">Mission & Vision</h1>
+      <h1 className="text-center pb-12 text-3xl md:text-4xl font-bold mt-12">Mission & Vision</h1>
 
       <div
         className="grid lg:grid-cols-2 items-center gap-6"

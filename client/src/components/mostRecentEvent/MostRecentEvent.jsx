@@ -33,7 +33,7 @@ const MostRecentEvent = () => {
 
     return (
         <div className="space-y-6">
-            <h1 className="text-4xl font-bold text-gray-800 text-center">Most Recent Events</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 text-center">Most Recent Events</h1>
 
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {events.slice(0, 6).map((event) => (

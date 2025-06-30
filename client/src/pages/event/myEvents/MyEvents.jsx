@@ -57,7 +57,7 @@ const MyEvents = () => {
     };
 
     return (
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-8 md:px-24">
             {events.map(event => {
                 const date = new Date(event.datetime);
                 const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(
@@ -70,7 +70,7 @@ const MyEvents = () => {
                 return (
                     <div
                         key={event._id}
-                        className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full px-8 md:px-24 mt-12"
+                        className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full mt-12"
                     >
                         <div>
                             <h2 className="text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>
