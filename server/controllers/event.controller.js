@@ -97,3 +97,15 @@ export const joinEvent = async (req, res) => {
 
   res.json({ message: 'Joined successfully' });
 };
+
+export const getUserEvent =async (req,res)=>{
+  const {userId} = req.params;
+
+  try {
+    const events = await Event.find({userId}).sort({datetime:1})
+    console.log(events);  
+    res.status(200).json(events)
+  } catch (error) {
+    return res.status(400).json("Something is went wrong!")
+  }
+}

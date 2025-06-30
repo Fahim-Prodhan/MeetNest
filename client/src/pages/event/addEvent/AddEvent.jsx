@@ -2,9 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import baseUrl from "../../../service/baseUrl";
+import { useAuthContext } from "../../../context/authContext";
 
 const AddEvent = () => {
   const [loading, setLoading] = useState(false);
+  const {authUser} = useAuthContext();
 
   const getMinDateTime = () => {
     const now = new Date();
@@ -54,7 +56,7 @@ const AddEvent = () => {
 
         <div>
           <label className="block font-semibold mb-1">Your Name</label>
-          <input name="postedBy" type="text" className="input input-bordered w-full" required />
+          <input defaultValue={authUser?.name} name="postedBy" type="text" className="input input-bordered w-full" required />
         </div>
 
         <div>

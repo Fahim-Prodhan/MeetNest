@@ -7,6 +7,7 @@ import Signup from "../pages/signup/Signup";
 import Login from "../pages/login/Login";
 import AddEvent from "../pages/event/addEvent/AddEvent";
 import EventList from "../pages/event/eventList/EventList";
+import MyEvents from "../pages/event/myEvents/MyEvents";
 
 
 let router = createBrowserRouter([
@@ -33,6 +34,10 @@ let router = createBrowserRouter([
             {
                 path:'/events',
                 Component: EventList
+            },
+            {
+                path:'/my-events',
+                Component: MyEvents
             },
             
         ]

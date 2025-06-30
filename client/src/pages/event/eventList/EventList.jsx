@@ -71,19 +71,18 @@ const EventList = () => {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
-          <option value="">All</option>
+          <option disabled value="">Select a date range</option>
           <option value="this-week">Current Week</option>
           <option value="last-week">Last Week</option>
           <option value="this-month">Current Month</option>
           <option value="last-month">Last Month</option>
-          <option value="date">Pick a Date</option>
         </select>
 
         <button
           onClick={clearFilters}
-          className="flex items-center gap-1 px-4 py-2 bg-gray-500 text-white rounded"
+          className="flex items-center gap-1 px-4 py-2 bg-[#ed330027] text-[#ED3500] rounded"
         >
-          Clear
+          Clear Filter
         </button>
       </div>
 

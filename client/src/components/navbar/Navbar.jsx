@@ -47,11 +47,10 @@ const Navbar = () => {
           onClick={hamburger}
           to="/"
           style={({ isActive }) => ({
-            color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #093FB4" : "none",
+            color: isActive ? "#4851ff" : "#333",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
-            background: isActive ? "#ddd" : "transparent",
+            background: isActive ? "#4851ff33" : "transparent",
           })}
         >
           Home
@@ -63,11 +62,10 @@ const Navbar = () => {
           onClick={hamburger}
           to="/events"
           style={({ isActive }) => ({
-            color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #093FB4" : "none",
+            color: isActive ? "#4851ff" : "#333",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
-            background: isActive ? "#ddd" : "transparent",
+            background: isActive ? "#4851ff33" : "transparent",
           })}
         >
           Events
@@ -78,11 +76,10 @@ const Navbar = () => {
           onClick={hamburger}
           to="/add-events"
           style={({ isActive }) => ({
-            color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #093FB4" : "none",
+            color: isActive ? "#4851ff" : "#333",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
-            background: isActive ? "#ddd" : "transparent",
+            background: isActive ? "#4851ff33" : "transparent",
           })}
         >
           Add Events
@@ -94,11 +91,10 @@ const Navbar = () => {
           onClick={hamburger}
           to="/my-events"
           style={({ isActive }) => ({
-            color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #093FB4" : "none",
+            color: isActive ? "#4851ff" : "#333",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
-            background: isActive ? "#ddd" : "transparent",
+            background: isActive ? "#4851ff33" : "transparent",
           })}
         >
           My Events
