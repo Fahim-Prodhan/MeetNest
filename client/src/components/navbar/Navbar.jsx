@@ -48,7 +48,7 @@ const Navbar = () => {
           to="/"
           style={({ isActive }) => ({
             color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #FF4F0F" : "none",
+            border: isActive ? "2px solid #093FB4" : "none",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
             background: isActive ? "#ddd" : "transparent",
@@ -64,7 +64,7 @@ const Navbar = () => {
           to="/events"
           style={({ isActive }) => ({
             color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #FF4F0F" : "none",
+            border: isActive ? "2px solid #093FB4" : "none",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
             background: isActive ? "#ddd" : "transparent",
@@ -79,7 +79,7 @@ const Navbar = () => {
           to="/add-events"
           style={({ isActive }) => ({
             color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #FF4F0F" : "none",
+            border: isActive ? "2px solid #093FB4" : "none",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
             background: isActive ? "#ddd" : "transparent",
@@ -95,7 +95,7 @@ const Navbar = () => {
           to="/my-events"
           style={({ isActive }) => ({
             color: isActive ? "#000" : "#333",
-            border: isActive ? "2px solid #FF4F0F" : "none",
+            border: isActive ? "2px solid #093FB4" : "none",
             borderRadius: isActive ? "5px" : "5px",
             padding: isActive ? "5px 12px" : "5px 12px",
             background: isActive ? "#ddd" : "transparent",
@@ -113,7 +113,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-[#eee] shadow-2xl md:py-0 py-2">
+      <nav className="bg-[#eee] shadow-xl md:py-0 py-2">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
           {/* Left side website name and logo */}
           <Link
@@ -134,7 +134,7 @@ const Navbar = () => {
                 <Link to="/login">
                   <button
                     type="button"
-                    className="text-[#fff] cursor-pointer bg-[#FF4F0F] hover:bg-[#ff670f] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
+                    className="text-[#fff] cursor-pointer bg-[#093FB4] hover:bg-[#ff670f] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
                   >
                     Sign In
                   </button>
@@ -231,7 +231,7 @@ const Navbar = () => {
               <Link onClick={handleHamburger} to="/login">
                 <button
                   type="button"
-                  className="text-[#fff] bg-[#FF4F0F] hover:bg-[#FF4F0F] px-2 py-1 rounded-lg font-semibold"
+                  className="text-[#fff] bg-[#093FB4] hover:bg-[#093FB4] px-2 py-1 rounded-lg font-semibold"
                 >
                   Sign In
                 </button>
@@ -250,7 +250,7 @@ const Navbar = () => {
               >
                 <button
                   type="button"
-                  className="text-[#111] bg-[#FF4F0F] hover:bg-[#FF4F0F] px-2 py-1 rounded-lg font-semibold"
+                  className="text-[#111] bg-[#093FB4] hover:bg-[#093FB4] px-2 py-1 rounded-lg font-semibold"
                 >
                   Logout
                 </button>

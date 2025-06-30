@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import toast from "react-hot-toast";
@@ -9,7 +9,6 @@ import axios from "axios";
 import baseUrl from "../../service/baseUrl";
 
 const Login = () => {
-    const navigate = useNavigate();
     const [eye, setEye] = useState(false);
     const [loading, setLoading] = useState(false)
 
@@ -29,7 +28,7 @@ const Login = () => {
           if (res.data?._id) {
             toast.success("Login successful");
             localStorage.setItem("UID", JSON.stringify(res.data?._id));
-            navigate('/');
+            window.location.href = '/'
           } 
         } catch (error) {
           toast.error(error.response.data.error);

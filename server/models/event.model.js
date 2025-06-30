@@ -38,7 +38,8 @@ const eventSchema = new mongoose.Schema(
         joinedUsers: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'User'
+                ref: 'User',
+                default:null
             }
         ]
     },

@@ -6,6 +6,12 @@ import baseUrl from "../../../service/baseUrl";
 const AddEvent = () => {
   const [loading, setLoading] = useState(false);
 
+  const getMinDateTime = () => {
+    const now = new Date();
+    now.setSeconds(0, 0);
+    return now.toISOString().slice(0, 16);
+  };
+
   const handleAddEvent = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -19,16 +25,16 @@ const AddEvent = () => {
       datetime: form.datetime.value,
       location: form.location.value,
       description: form.description.value,
-      userId
+      userId,
     };
 
     try {
       const res = await axios.post(`${baseUrl}/api/events/add`, eventData, {
-        withCredentials: true, 
+        withCredentials: true,
       });
-      if(res.status == 201){
-          toast.success("Event added successfully!");
-          form.reset();
+      if (res.status == 201) {
+        toast.success("Event added successfully!");
+        form.reset();
       }
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong");
@@ -53,7 +59,13 @@ const AddEvent = () => {
 
         <div>
           <label className="block font-semibold mb-1">Date & Time</label>
-          <input name="datetime" type="datetime-local" className="input input-bordered w-full" required />
+          <input
+            name="datetime"
+            type="datetime-local"
+            className="input input-bordered w-full"
+            required
+            min={getMinDateTime()}
+          />
         </div>
 
         <div>
