@@ -2,19 +2,33 @@ import React from 'react';
 
 const EventCard = ({ event, onJoin }) => {
   const date = new Date(event.datetime);
-  const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-
+  const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(
+    date.getMonth() + 1
+  ).padStart(2, '0')}-${date.getFullYear()} ${String(date.getHours()).padStart(
+    2,
+    '0'
+  )}:${String(date.getMinutes()).padStart(2, '0')}`;
 
   return (
-    <div className="border p-4 rounded shadow-md bg-white">
-      <h2 className="text-xl font-semibold">{event.title}</h2>
-      <p className="text-sm text-gray-600">Posted by: {event.postedBy}</p>
-      <p className="text-sm text-gray-600">Date & Time: {formattedDate}</p>
-      <p className="text-sm text-gray-600">Location: {event.location}</p>
-      <p className="my-2">{event.description}</p>
-      <p className="text-sm font-semibold">Attendees: {event.attendeeCount}</p>
+    <div className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full">
+      <div>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>
+        <p className="text-sm text-gray-500 mb-1">
+          📢 Posted by: <span className="font-medium text-gray-700">{event.postedBy}</span>
+        </p>
+        <p className="text-sm text-gray-500 mb-1">
+          📅 Date & Time: <span className="font-medium">{formattedDate}</span>
+        </p>
+        <p className="text-sm text-gray-500 mb-1">
+          📍 Location: <span className="font-medium">{event.location}</span>
+        </p>
+        <p className="text-gray-700 mt-3 mb-4">{event.description}</p>
+        <p className="text-sm font-semibold text-gray-700">
+          👥 Attendees: {event.attendeeCount}
+        </p>
+      </div>
       <button
-        className="mt-2 px-4 py-2 bg-blue-600 text-white rounded"
+        className="mt-6 w-full py-2 bg-[#ED3500] text-white font-semibold rounded-lg hover:bg-[#c73000] transition-colors duration-300"
         onClick={() => onJoin(event._id)}
       >
         Join Event

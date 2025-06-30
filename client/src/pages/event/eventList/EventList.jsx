@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import EventCard from '../../../components/ui/eventCard/EventCard';
 import baseUrl from '../../../service/baseUrl';
 import { useAuthContext } from '../../../context/authContext';
@@ -28,8 +29,14 @@ const EventList = () => {
 
   const handleJoin = async (eventId) => {
     const userId = authUser?._id;
-    await axios.post(`${baseUrl}/api/events/join/${eventId}`, { userId });
-    fetchEvents();
+  
+    try {
+      await axios.post(`${baseUrl}/api/events/join/${eventId}`, { userId });
+      toast.success('Successfully joined the event');
+      fetchEvents();
+    } catch (error) {
+      toast.error(error.response?.data?.message || 'Failed to join event');
+    }
   };
 
   const clearFilters = () => {
