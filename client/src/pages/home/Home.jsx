@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             <HeaderBanner />
-            <div className='px-8 md:px-24 mt-12'>
+            <div className='px-4 md:px-24 mt-12'>
                 <MostRecentEvent />
                 <MissionAndVision/>
                 <CustomerReview/>

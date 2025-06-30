@@ -12,7 +12,7 @@ const EventCard = ({ event, onJoin }) => {
   return (
     <div className="border border-gray-200 p-6 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full">
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>
+        <h2 className="text-lg md:text-2xl font-bold text-gray-800 mb-2">{event.title}</h2>
         <p className="text-sm text-gray-500 mb-1">
           📢 Posted by: <span className="font-medium text-gray-700">{event.postedBy}</span>
         </p>

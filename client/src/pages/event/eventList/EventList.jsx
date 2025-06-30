@@ -46,7 +46,7 @@ const EventList = () => {
   };
 
   return (
-    <div className="space-y-6 px-8 md:px-24 mt-12">
+    <div className="space-y-6 px-3 md:px-24 mt-12">
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-start flex-wrap">
         <input
           className="border px-3 py-2 rounded w-full sm:w-1/4"

@@ -42,7 +42,7 @@ function HeaderBanner() {
 
         <div className="px-6 lg:px-0 w-full md:space-y-4 text-center z-20 absolute top-[45%] left-1/2 text-white -translate-x-1/2 -translate-y-1/2">
           <p className="animate__animated animate__fadeInDown md:text-xl font-semibold">Event Management</p>
-          <h1 className="animate__animated animate__fadeInDown text-2xl lg:text-5xl lg:font-black font-bold">Organize. Engage. Celebrate.</h1>
+          <h1 className="animate__animated animate__fadeInDown text-xl lg:text-5xl lg:font-black font-bold">Organize. Engage. Celebrate.</h1>
           <p className="animate__animated animate__fadeInDown md:text-xl md:pt-4 md:px-36">
             Plan and manage unforgettable events with ease. Join us to streamline your event experience and bring people together!
           </p>
