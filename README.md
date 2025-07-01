@@ -56,10 +56,8 @@ JWT_SECRET=your_jwt_secret_key
 npm run dev
 
 
-```bash
-cd client
+cd ./client
 npm install
-change the baseUrl from service folder
 npm run dev
 
 
